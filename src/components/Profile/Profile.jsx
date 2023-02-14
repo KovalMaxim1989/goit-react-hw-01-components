@@ -1,4 +1,8 @@
 import PropTypes from "prop-types";
+import { MdOutlineLocationOn } from 'react-icons/md';
+import { HiUsers} from 'react-icons/hi';
+import { FaEye } from 'react-icons/fa';
+import { AiFillLike} from 'react-icons/ai';
 
 export function Profile({ username,
     tag,
@@ -17,20 +21,20 @@ export function Profile({ username,
     />
     <p class="name">{username}</p>
     <p class="tag">{tag}</p>
-    <p class="location">{location}</p>
+    <p class="location"><MdOutlineLocationOn/>{location}</p>
   </div>
   <ul class="stats">
     <li>
       <span class="label">Followers</span>
-      <span class="quantity">{followers}</span>
+      <span class="quantity">{followers}<HiUsers/></span>
     </li>
     <li>
       <span class="label">Views</span>
-      <span class="quantity">{views}</span>
+      <span class="quantity">{views}<FaEye/></span>
     </li>
     <li>
       <span class="label">Likes</span>
-      <span class="quantity">{likes}</span>
+      <span class="quantity">{likes}<AiFillLike/></span>
     </li>
   </ul>
 </div>);
