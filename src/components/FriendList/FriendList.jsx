@@ -1,13 +1,17 @@
-import PropTypes from "prop-types";
-import { FriendListItem } from "components/FriendListItem/FriendListItem";
+import PropTypes from 'prop-types';
+import { Friends } from './FriendList.styled';
 
-export function FriendList ({ friends }) { 
-    return (
-         <ul class="friend-list">
-          {friends.map(friend => <FriendListItem friend={friend} />)}
-        </ul>
-    );
-};
+import { FriendListItem } from 'components/FriendListItem/FriendListItem';
+
+export function FriendList({ friends }) {
+  return (
+    <Friends>
+      {friends.map(friend => (
+        <FriendListItem friend={friend} />
+      ))}
+    </Friends>
+  );
+}
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(

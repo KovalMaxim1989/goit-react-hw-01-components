@@ -1,20 +1,33 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { FaPercent } from 'react-icons/fa';
 
-export function Statistics({ title, stats }) { 
-    return (
- <section class="statistics">
-  <h2 class="title">{title}</h2>
-  <ul class="stat-list">
-        {stats.map(({ id, label, percentage }) => 
-              <li class="item" key={id}>
-                 <span class="label">{label}</span>
-                 <span class="percentage">{percentage}</span>
-             </li> 
-        )}
-  </ul>
- </section>
-    );
-};
+import {
+  StatisticsSection,
+  StatisticsTitle,
+  StatisticsList,
+  StatisticsItem,
+  StatisticsLabel,
+  StatisticsPercentage,
+} from './Statistics.styled';
+
+export function Statistics({ title, stats }) {
+  return (
+    <StatisticsSection>
+      <StatisticsTitle>{title}</StatisticsTitle>
+      <StatisticsList>
+        {stats.map(({ id, label, percentage }) => (
+          <StatisticsItem key={id}>
+            <StatisticsLabel>{label}</StatisticsLabel>
+            <StatisticsPercentage>
+              {percentage}
+              <FaPercent />
+            </StatisticsPercentage>
+          </StatisticsItem>
+        ))}
+      </StatisticsList>
+    </StatisticsSection>
+  );
+}
 
 Statistics.propTypes = {
   title: PropTypes.string,

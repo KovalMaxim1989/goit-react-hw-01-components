@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { MdOutlineLocationOn } from 'react-icons/md';
-import { HiUsers} from 'react-icons/hi';
+import { HiUsers } from 'react-icons/hi';
 import { FaEye } from 'react-icons/fa';
 import { AiFillLike } from 'react-icons/ai';
 
@@ -17,36 +17,51 @@ import {
   Stat,
 } from './Profile.styled';
 
-export function Profile({ username,
-    tag,
-    location,
-    avatar,
-    followers,
-    views,
-    likes, }) { 
-    return (
-<UserProfile>
-  <UserThumb>
-    <UserAvatar src={avatar} alt="User avatar" />
-    <UserName class="name">{username}</UserName>
-    <UserTag class="tag">{tag}</UserTag>
-    <UserLocation class="location"><MdOutlineLocationOn/>{location}</UserLocation>
-  </UserThumb>
-  <UserStats class="stats">
-    <Stat>
-      <StatsLabel class="label">Followers</StatsLabel>
-      <StatsQuantity class="quantity">{followers}<HiUsers/></StatsQuantity>
-    </Stat>
-    <Stat>
-      <StatsLabel class="label">Views</StatsLabel>
-      <StatsQuantity class="quantity">{views}<FaEye/></StatsQuantity>
-    </Stat>
-    <Stat>
-      <StatsLabel class="label">Likes</StatsLabel>
-      <StatsQuantity class="quantity">{likes}<AiFillLike/></StatsQuantity>
-    </Stat>
-  </UserStats>
-</UserProfile>);
+export function Profile({
+  username,
+  tag,
+  location,
+  avatar,
+  followers,
+  views,
+  likes,
+}) {
+  return (
+    <UserProfile>
+      <UserThumb>
+        <UserAvatar src={avatar} alt="User avatar" />
+        <UserName>{username}</UserName>
+        <UserTag>{tag}</UserTag>
+        <UserLocation>
+          <MdOutlineLocationOn />
+          {location}
+        </UserLocation>
+      </UserThumb>
+      <UserStats>
+        <Stat>
+          <StatsLabel>Followers</StatsLabel>
+          <StatsQuantity>
+            {followers}
+            <HiUsers />
+          </StatsQuantity>
+        </Stat>
+        <Stat>
+          <StatsLabel>Views</StatsLabel>
+          <StatsQuantity>
+            {views}
+            <FaEye />
+          </StatsQuantity>
+        </Stat>
+        <Stat>
+          <StatsLabel>Likes</StatsLabel>
+          <StatsQuantity>
+            {likes}
+            <AiFillLike />
+          </StatsQuantity>
+        </Stat>
+      </UserStats>
+    </UserProfile>
+  );
 }
 
 Profile.propTypes = {

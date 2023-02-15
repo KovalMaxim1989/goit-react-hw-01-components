@@ -1,15 +1,22 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+
+import {
+  Friend,
+  FriendStatus,
+  FriendAvatar,
+  FriendName,
+} from './FriendListItem.styled';
 
 export function FriendListItem({ friend: { avatar, name, isOnline, id } }) {
-    return (
-        <li class="item" key={id}>
-            <span class="status" typeName={isOnline}>{isOnline}</span>
-            <img class="avatar" src={avatar} alt="User avatar" width="48" />
-            <p class="name">{name}</p>
-        </li>
-    );
-};
- 
+  return (
+    <Friend key={id}>
+      <FriendStatus typeName={isOnline}>{isOnline}</FriendStatus>
+      <FriendAvatar class="avatar" src={avatar} alt="User avatar" width="48" />
+      <FriendName>{name}</FriendName>
+    </Friend>
+  );
+}
+
 FriendListItem.propTypes = {
   friend: PropTypes.shape({
     id: PropTypes.number.isRequired,
