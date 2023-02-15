@@ -2,7 +2,20 @@ import PropTypes from "prop-types";
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { HiUsers} from 'react-icons/hi';
 import { FaEye } from 'react-icons/fa';
-import { AiFillLike} from 'react-icons/ai';
+import { AiFillLike } from 'react-icons/ai';
+
+import {
+  UserProfile,
+  UserThumb,
+  UserAvatar,
+  UserName,
+  UserTag,
+  UserLocation,
+  UserStats,
+  StatsLabel,
+  StatsQuantity,
+  Stat,
+} from './Profile.styled';
 
 export function Profile({ username,
     tag,
@@ -12,32 +25,28 @@ export function Profile({ username,
     views,
     likes, }) { 
     return (
-<div class="profile">
-  <div class="description">
-    <img
-      src={avatar}
-      alt="User avatar"
-      class="avatar"
-    />
-    <p class="name">{username}</p>
-    <p class="tag">{tag}</p>
-    <p class="location"><MdOutlineLocationOn/>{location}</p>
-  </div>
-  <ul class="stats">
-    <li>
-      <span class="label">Followers</span>
-      <span class="quantity">{followers}<HiUsers/></span>
-    </li>
-    <li>
-      <span class="label">Views</span>
-      <span class="quantity">{views}<FaEye/></span>
-    </li>
-    <li>
-      <span class="label">Likes</span>
-      <span class="quantity">{likes}<AiFillLike/></span>
-    </li>
-  </ul>
-</div>);
+<UserProfile>
+  <UserThumb>
+    <UserAvatar src={avatar} alt="User avatar" />
+    <UserName class="name">{username}</UserName>
+    <UserTag class="tag">{tag}</UserTag>
+    <UserLocation class="location"><MdOutlineLocationOn/>{location}</UserLocation>
+  </UserThumb>
+  <UserStats class="stats">
+    <Stat>
+      <StatsLabel class="label">Followers</StatsLabel>
+      <StatsQuantity class="quantity">{followers}<HiUsers/></StatsQuantity>
+    </Stat>
+    <Stat>
+      <StatsLabel class="label">Views</StatsLabel>
+      <StatsQuantity class="quantity">{views}<FaEye/></StatsQuantity>
+    </Stat>
+    <Stat>
+      <StatsLabel class="label">Likes</StatsLabel>
+      <StatsQuantity class="quantity">{likes}<AiFillLike/></StatsQuantity>
+    </Stat>
+  </UserStats>
+</UserProfile>);
 }
 
 Profile.propTypes = {
