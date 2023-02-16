@@ -7,7 +7,7 @@ export function FriendList({ friends }) {
   return (
     <Friends>
       {friends.map(friend => (
-        <FriendListItem friend={friend} />
+        <FriendListItem key={friends.id} friend={friend} />
       ))}
     </Friends>
   );
